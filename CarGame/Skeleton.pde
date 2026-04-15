@@ -1,8 +1,9 @@
 class Skeleton {
   //member variables
   float x, y, w, h, speed;
-  PImage iCar1;
+  PImage skeleton;
   char idir;
+  
 
   //constructor
   Skeleton(float x, float y, float w, float h, float speed) {
@@ -11,18 +12,22 @@ class Skeleton {
   this.w = w;
   this.h = h;
   this.speed = speed;
+  skeleton = loadImage("obstacle.png");
    
    
   }
 
 void display () {
   fill(128);
-  rect(x,y,w,h);
-  
+  imageMode(CENTER);
+  image(skeleton,x,y);
   
 }
 
   void move() {
     x = x +speed;
+    if(x>width){
+   x = 0;
+    }
   }
 }
