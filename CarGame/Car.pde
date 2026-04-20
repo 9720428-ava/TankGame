@@ -15,27 +15,25 @@ class Car {
     iCar1 = loadImage ("car.png");
     idir ='w';
     iCar2 = loadImage ("carL.png");
-     idir = 'a';
+    idir = 'a';
     iCar3 = loadImage ("carD.png");
     idir = 's';
     iCar4 = loadImage ("carR.png");
     idir = 'd';
   }
 
-void display () {
-  imageMode (CENTER);
-  if(idir =='w'){
-    image(iCar1,x,y);
-  }else if (idir =='a'){
-    image(iCar2,x,y);
-  }else if(idir =='s'){
-    image(iCar3,x,y);
-  }else if(idir =='d'){
-    image(iCar4,x,y);
+  void display() {
+    imageMode (CENTER);
+    if (idir =='w') {
+      image(iCar1, x, y);
+    } else if (idir =='a') {
+      image(iCar2, x, y);
+    } else if (idir =='s') {
+      image(iCar3, x, y);
+    } else if (idir =='d') {
+      image(iCar4, x, y);
+    }
   }
-  
-  
-}
 
   void move(char dir) {
     if (dir == 'w') {
