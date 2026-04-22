@@ -2,6 +2,7 @@
 Car shia;
 ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 ArrayList<Skeleton> skeletons = new ArrayList<Skeleton>();
+int spawnRate =30;
 Skeleton jace;
 PImage bg1;
 int score;
@@ -12,6 +13,7 @@ void setup () {
   size(500, 500);
   score = 0;
   shia = new Car();
+  imageMode(CENTER);
   jace = new Skeleton(100, 100, 100, 50, 5);
   bg1 = loadImage("background.png");
   objTimer = new Timer(1000);
@@ -29,6 +31,7 @@ void draw() {
     skeletons.add(new Skeleton(-100, 200, 100, 100, 10));
     //restart timer
     objTimer.start();
+  
   }
 //render and detect collison
   for (int i = 0; i < projectiles.size(); i++) {
@@ -44,7 +47,8 @@ void draw() {
     p.display();
     p.move();
   }
-  for (int i = 0; 1< skeletons.size(); i++) {
+  //displays and removes obstacles
+  for (int i = 0; i< skeletons.size(); i++) {
     Skeleton s = skeletons.get(i);
     s.display();
     s.move();

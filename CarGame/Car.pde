@@ -13,11 +13,8 @@ class Car {
     speed = 6.0;
     health = 75.0;
     iCar1 = loadImage ("car.png");
-    idir ='w';
     iCar2 = loadImage ("carL.png");
-    idir = 'a';
     iCar3 = loadImage ("carD.png");
-    idir = 's';
     iCar4 = loadImage ("carR.png");
     idir = 'd';
   }
@@ -38,13 +35,16 @@ class Car {
   void move(char dir) {
     if (dir == 'w') {
       idir = 'w';
-      y = y - speed;
+      y= y - speed;
     } else if (dir == 's') {
       y = y + speed;
+      idir = 's';
     } else if (dir == 'a') {
       x = x - speed;
+      idir = 'a';
     } else if (dir == 'd') {
       x = x + speed;
+      idir = 'd';
     }
   }
 

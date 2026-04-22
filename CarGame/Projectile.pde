@@ -3,10 +3,7 @@ class Projectile {
   float x, y, w, h, speed;
   float vx, vy;
   char idir;
-
-
-
-
+  
   //constructor
   Projectile(float x, float y, float w, float h) {
     this.x = x;
@@ -22,8 +19,8 @@ class Projectile {
   }
 
   void move() {
-    x += vx;
-    y += vy;
+    y = y-speed;
+    
   }
 
   boolean intersect(Skeleton s) {
