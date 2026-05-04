@@ -36,44 +36,44 @@ void draw() {
     //restart timer
     objTimer.start();
   }
-}
 
-//render and detect collison
-for (int i = 0; i < projectiles.size(); i++) {
-  Projectile  p= projectiles.get(i);
-  for (int j = 0; j<skeletons.size(); j++) {
-    Skeleton s = skeletons.get(j);
-    if (p.intersect(s)) {
-      score = score + 100;
-      projectiles.remove(i);
-      skeletons.remove(j);
+
+  //render and detect collison
+  for (int i = 0; i < projectiles.size(); i++) {
+    Projectile  p= projectiles.get(i);
+    for (int j = 0; j<skeletons.size(); j++) {
+      Skeleton s = skeletons.get(j);
+      if (p.intersect(s)) {
+        score = score + 100;
+        projectiles.remove(i);
+        skeletons.remove(j);
+      }
+    }
+    p.display();
+    p.move();
+  }
+  //displays and removes obstacles
+  for (int i = 0; i< skeletons.size(); i++) {
+    Skeleton s = skeletons.get(i);
+    s.display();
+    s.move();
+    if (s.reachedEdge()) {
+      skeletons.remove(i);
     }
   }
-  p.display();
-  p.move();
-}
-//displays and removes obstacles
-for (int i = 0; i< skeletons.size(); i++) {
-  Skeleton s = skeletons.get(i);
-  s.display();
-  s.move();
-  if (s.reachedEdge()) {
-    skeletons.remove(i);
+
+
+
+  {
+
+
+    shia.display();
+    //jace.display ();
+    // jace.move ();
+    scorePanel();
+    //ava.display()
   }
 }
-
-
-
-{
-
-
-  shia.display();
-  //jace.display ();
-  // jace.move ();
-  scorePanel();
-  //ava.display()
-}
-
 void keyPressed () {
   if (key == 'w') {
     shia.move('w');
